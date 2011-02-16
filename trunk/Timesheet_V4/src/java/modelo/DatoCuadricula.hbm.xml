@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16-feb-2011 10:22:28 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelo.DatoCuadricula" table="DatoCuadricula" catalog="lacue1_grupo2">
+        <id name="idDatoCuadricula" type="int">
+            <column name="idDatoCuadricula" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cuadricula" class="modelo.Cuadricula" fetch="select">
+            <column name="idCuadricula" not-null="true" />
+        </many-to-one>
+        <property name="dia" type="date">
+            <column name="dia" length="10" not-null="true" />
+        </property>
+        <property name="horas" type="int">
+            <column name="horas" not-null="true" />
+        </property>
+        <property name="dpto" type="string">
+            <column name="dpto" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

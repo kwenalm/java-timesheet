@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16-feb-2011 10:22:28 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelo.Notificaciones" table="Notificaciones" catalog="lacue1_grupo2">
+        <id name="idNotificaciones" type="int">
+            <column name="idNotificaciones" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="usuarioByRemitente" class="modelo.Usuario" fetch="select">
+            <column name="remitente" length="9" not-null="true" />
+        </many-to-one>
+        <many-to-one name="cuadricula" class="modelo.Cuadricula" fetch="select">
+            <column name="idCuadricula" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuarioByDestinatario" class="modelo.Usuario" fetch="select">
+            <column name="destinatario" length="9" not-null="true" />
+        </many-to-one>
+        <property name="tipo" type="string">
+            <column name="tipo" length="9" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" not-null="true" />
+        </property>
+        <set name="notificacionDenegadas" inverse="true">
+            <key>
+                <column name="idNotificaciones" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="modelo.NotificacionDenegada" />
+        </set>
+        <set name="notificacionPendientes" inverse="true">
+            <key>
+                <column name="idNotificaciones" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="modelo.NotificacionPendiente" />
+        </set>
+    </class>
+</hibernate-mapping>

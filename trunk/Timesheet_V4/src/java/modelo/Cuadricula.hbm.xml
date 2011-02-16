@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16-feb-2011 10:22:28 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelo.Cuadricula" table="Cuadricula" catalog="lacue1_grupo2">
+        <id name="idCuadricula" type="java.lang.Integer">
+            <column name="idCuadricula" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usuario" class="modelo.Usuario" fetch="select">
+            <column name="nif" length="9" not-null="true" />
+        </many-to-one>
+        <property name="fechaInicio" type="date">
+            <column name="fechaInicio" length="10" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="9" />
+        </property>
+        <set name="notificacioneses" inverse="true">
+            <key>
+                <column name="idCuadricula" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Notificaciones" />
+        </set>
+        <set name="datoCuadriculas" inverse="true">
+            <key>
+                <column name="idCuadricula" not-null="true" />
+            </key>
+            <one-to-many class="modelo.DatoCuadricula" />
+        </set>
+    </class>
+</hibernate-mapping>
