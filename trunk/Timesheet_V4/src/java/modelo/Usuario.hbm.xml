@@ -1,51 +1,50 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 16-feb-2011 10:22:28 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="modelo.Usuario" table="Usuario" catalog="lacue1_grupo2">
-        <id name="nif" type="string">
-            <column name="nif" length="9" />
-            <generator class="assigned" />
-        </id>
-        <property name="nombre" type="string">
-            <column name="nombre" length="45" not-null="true" />
-        </property>
-        <property name="apellido1" type="string">
-            <column name="apellido1" length="45" not-null="true" />
-        </property>
-        <property name="apellido2" type="string">
-            <column name="apellido2" length="45" />
-        </property>
-        <property name="tipo" type="string">
-            <column name="tipo" length="14" not-null="true" />
-        </property>
-        <property name="departamento" type="string">
-            <column name="departamento" length="10" />
-        </property>
-        <set name="notificacionesesForDestinatario" inverse="true">
-            <key>
-                <column name="destinatario" length="9" not-null="true" />
-            </key>
-            <one-to-many class="modelo.Notificaciones" />
-        </set>
-        <set name="notificacionesesForRemitente" inverse="true">
-            <key>
-                <column name="remitente" length="9" not-null="true" />
-            </key>
-            <one-to-many class="modelo.Notificaciones" />
-        </set>
-        <set name="autentificacions" inverse="true">
-            <key>
-                <column name="nif" length="9" not-null="true" unique="true" />
-            </key>
-            <one-to-many class="modelo.Autentificacion" />
-        </set>
-        <set name="cuadriculas" inverse="true">
-            <key>
-                <column name="nif" length="9" not-null="true" />
-            </key>
-            <one-to-many class="modelo.Cuadricula" />
-        </set>
-    </class>
+  <class catalog="lacue1_grupo2" name="modelo.Usuario" table="Usuario">
+    <id name="nif" type="string">
+      <column length="9" name="nif"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="nombre" type="string">
+      <column length="45" name="nombre" not-null="true"/>
+    </property>
+    <property name="apellido1" type="string">
+      <column length="45" name="apellido1" not-null="true"/>
+    </property>
+    <property name="apellido2" type="string">
+      <column length="45" name="apellido2"/>
+    </property>
+    <property name="tipo" type="string">
+      <column length="14" name="tipo" not-null="true"/>
+    </property>
+    <property name="departamento" type="string">
+      <column length="10" name="departamento"/>
+    </property>
+    <set inverse="true" name="notificacionesesForDestinatario">
+      <key>
+        <column length="9" name="destinatario" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.notificaciones.Notificaciones"/>
+    </set>
+    <set inverse="true" name="notificacionesesForRemitente">
+      <key>
+        <column length="9" name="remitente" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.notificaciones.Notificaciones"/>
+    </set>
+    <set inverse="true" name="autentificacions">
+      <key>
+        <column length="9" name="nif" not-null="true" unique="true"/>
+      </key>
+      <one-to-many class="modelo.Autentificacion"/>
+    </set>
+    <set inverse="true" name="cuadriculas">
+      <key>
+        <column length="9" name="nif" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.Cuadricula"/>
+    </set>
+  </class>
 </hibernate-mapping>
