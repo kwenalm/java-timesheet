@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 import modelo.notificaciones.Notificaciones;
+import java.util.Comparator;
 
 /**
  *
@@ -29,7 +30,13 @@ public class Jefe extends Usuario implements Serializable {
     }
 
     public void setNotificaciones(List<Notificaciones> l) {
-        notificaciones = new PriorityQueue<Notificaciones>(0,new ComparadorNJefe());
+        notificaciones = new PriorityQueue<Notificaciones>(0,
+                new Comparator<Notificaciones>(){
+                    public int compare (Notificaciones n1, Notificaciones n2)
+                    {
+                        return 0;
+                    }
+        });
         notificaciones.addAll(l);
     }
 
