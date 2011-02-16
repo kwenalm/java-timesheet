@@ -1,4 +1,4 @@
-package modelo;
+package modelo.notificaciones;
 // Generated 16-feb-2011 10:22:20 by Hibernate Tools 3.2.1.GA
 
 

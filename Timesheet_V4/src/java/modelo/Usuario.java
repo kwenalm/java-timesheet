@@ -15,13 +15,13 @@ public class Usuario  implements java.io.Serializable {
      private String nombre;
      private String apellido1;
      private String apellido2;
-     private String tipo;
-     private String departamento;
-     private Set notificacionesesForDestinatario = new HashSet(0);
+    // private String tipo;
+     //private String departamento;
+   /*  private Set notificacionesesForDestinatario = new HashSet(0);
      private Set notificacionesesForRemitente = new HashSet(0);
      private Set autentificacions = new HashSet(0);
      private Set cuadriculas = new HashSet(0);
-
+*/
     public Usuario() {
     }
 
@@ -30,19 +30,19 @@ public class Usuario  implements java.io.Serializable {
         this.nif = nif;
         this.nombre = nombre;
         this.apellido1 = apellido1;
-        this.tipo = tipo;
+        //this.tipo = tipo;
     }
     public Usuario(String nif, String nombre, String apellido1, String apellido2, String tipo, String departamento, Set notificacionesesForDestinatario, Set notificacionesesForRemitente, Set autentificacions, Set cuadriculas) {
        this.nif = nif;
        this.nombre = nombre;
        this.apellido1 = apellido1;
        this.apellido2 = apellido2;
-       this.tipo = tipo;
-       this.departamento = departamento;
-       this.notificacionesesForDestinatario = notificacionesesForDestinatario;
+       //this.tipo = tipo;
+       //this.departamento = departamento;
+     /*  this.notificacionesesForDestinatario = notificacionesesForDestinatario;
        this.notificacionesesForRemitente = notificacionesesForRemitente;
        this.autentificacions = autentificacions;
-       this.cuadriculas = cuadriculas;
+       this.cuadriculas = cuadriculas;*/
     }
    
     public String getNif() {
@@ -73,20 +73,22 @@ public class Usuario  implements java.io.Serializable {
     public void setApellido2(String apellido2) {
         this.apellido2 = apellido2;
     }
+    /*
     public String getTipo() {
         return this.tipo;
-    }
-    
+    }*/
+    /*
     public void setTipo(String tipo) {
         this.tipo = tipo;
-    }
+    }*/
+    /*
     public String getDepartamento() {
         return this.departamento;
     }
     
     public void setDepartamento(String departamento) {
         this.departamento = departamento;
-    }
+    }/*
     public Set getNotificacionesesForDestinatario() {
         return this.notificacionesesForDestinatario;
     }
@@ -114,7 +116,7 @@ public class Usuario  implements java.io.Serializable {
     
     public void setCuadriculas(Set cuadriculas) {
         this.cuadriculas = cuadriculas;
-    }
+    }*/
 
 
 
