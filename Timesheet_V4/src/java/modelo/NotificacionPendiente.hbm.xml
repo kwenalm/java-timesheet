@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16-feb-2011 10:22:28 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelo.NotificacionPendiente" table="NotificacionPendiente" catalog="lacue1_grupo2">
+        <id name="idNotificaciones" type="int">
+            <column name="idNotificaciones" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="notificaciones" class="modelo.Notificaciones" update="false" insert="false" fetch="select">
+            <column name="idNotificaciones" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="plazo" type="date">
+            <column name="plazo" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
