@@ -14,7 +14,6 @@ import modelo.Usuario;
  */
 public class Notificaciones  implements java.io.Serializable, Comparable<Notificaciones>{
 
-
      private int idNotificaciones;
      private Usuario remitente;
      private Usuario destinatario;

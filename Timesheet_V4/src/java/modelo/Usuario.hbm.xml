@@ -35,6 +35,10 @@
             <key column="destinatario" not-null="true" length="9"/>
             <one-to-many class="modelo.notificaciones.NotificacionPendiente"/>
         </set>
+        <set name="cuadriculas" inverse="true">
+            <key column="nif" not-null="true" length="9"/>
+            <one-to-many class="modelo.Cuadricula"/>
+        </set>
     </subclass>
 
     <!-- Subclase Jefe -->
