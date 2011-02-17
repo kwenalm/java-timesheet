@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 16-feb-2011 10:22:28 by Hibernate Tools 3.2.1.GA -->
+
 <hibernate-mapping>
   <class catalog="lacue1_grupo2" name="modelo.Cuadricula" table="Cuadricula">
     <id name="idCuadricula" type="java.lang.Integer">
@@ -16,13 +16,14 @@
     <property name="estado" type="string">
       <column length="9" name="estado"/>
     </property>
+    <!--
     <set inverse="true" name="notificacioneses">
       <key>
         <column name="idCuadricula" not-null="true"/>
       </key>
       <one-to-many class="modelo.notificaciones.Notificaciones"/>
-    </set>
-    <set inverse="true" name="datoCuadriculas">
+    </set> -->
+    <set inverse="true" name="datosCuadricula">
       <key>
         <column name="idCuadricula" not-null="true"/>
       </key>
