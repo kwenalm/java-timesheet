@@ -10,17 +10,19 @@ public class Autentificacion  implements java.io.Serializable {
 
 
      private String nif;
-     private Usuario usuario;
+     //private Usuario usuario;
+
+     // La clave realmente la recuperamos cifrada
      private String clave;
 
     public Autentificacion() {
     }
 
-    public Autentificacion(String nif, Usuario usuario, String clave) {
-       this.nif = nif;
-       this.usuario = usuario;
-       this.clave = clave;
-    }
+//    public Autentificacion(String nif, Usuario usuario, String clave) {
+//       this.nif = nif;
+//       this.usuario = usuario;
+//       this.clave = clave;
+//    }
    
     public String getNif() {
         return this.nif;
@@ -29,6 +31,7 @@ public class Autentificacion  implements java.io.Serializable {
     public void setNif(String nif) {
         this.nif = nif;
     }
+    /*
     public Usuario getUsuario() {
         return this.usuario;
     }
@@ -36,6 +39,8 @@ public class Autentificacion  implements java.io.Serializable {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+     */
+
     public String getClave() {
         return this.clave;
     }

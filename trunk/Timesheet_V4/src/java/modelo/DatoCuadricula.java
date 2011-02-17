@@ -11,7 +11,7 @@ public class DatoCuadricula  implements java.io.Serializable {
 
 
      private int idDatoCuadricula;
-     private Cuadricula cuadricula;
+    // private Cuadricula cuadricula;
      private Date dia;
      private int horas;
      private String dpto;
@@ -21,7 +21,7 @@ public class DatoCuadricula  implements java.io.Serializable {
 
     public DatoCuadricula(int idDatoCuadricula, Cuadricula cuadricula, Date dia, int horas, String dpto) {
        this.idDatoCuadricula = idDatoCuadricula;
-       this.cuadricula = cuadricula;
+     //  this.cuadricula = cuadricula;
        this.dia = dia;
        this.horas = horas;
        this.dpto = dpto;
@@ -34,6 +34,7 @@ public class DatoCuadricula  implements java.io.Serializable {
     public void setIdDatoCuadricula(int idDatoCuadricula) {
         this.idDatoCuadricula = idDatoCuadricula;
     }
+    /*
     public Cuadricula getCuadricula() {
         return this.cuadricula;
     }
@@ -41,6 +42,8 @@ public class DatoCuadricula  implements java.io.Serializable {
     public void setCuadricula(Cuadricula cuadricula) {
         this.cuadricula = cuadricula;
     }
+     
+     */
     public Date getDia() {
         return this.dia;
     }
