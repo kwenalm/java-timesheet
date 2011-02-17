@@ -1,7 +1,5 @@
 package modelo;
 
-import java.util.Set;
-
 public class Usuario  implements java.io.Serializable {
 
      private String nif;
