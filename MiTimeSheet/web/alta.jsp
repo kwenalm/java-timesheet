@@ -26,7 +26,46 @@
 <body>
    
     <script validaciones>
-        function validaEnviar(){
+      
+        function averigua_letra_dni(numeros_dni){
+		lista_letras="TRWAGMYFPDXBNJZSQVHLCKET"; // Lista codificada de letras mayúsculas.
+		posicion=numeros_dni%23; // Resto de la división entera del DNI numérico entre 23.
+		letra_dni=lista_letras.substring(posicion,posicion+1); // Obtenemos la letra.
+		return letra_dni; // Devuelve la letra mayúscula para a las 8 cifras del D.N.I.
+	}
+        function esDNI(){
+
+	nombre_campo="D.N.I.";
+	valor = document.getElementById('formularioAlta:nif').value;
+	if (valor.length!=9){
+		alert("El campo: "+nombre_campo+" debe contener 9 caracteres.");
+		return "";
+	}
+	else{
+		numeros = valor.substring(0,8); // Tomamos los 8 primeros caracteres.
+		letra = valor.substring(8); // Tomamos el carácter en el noveno lugar.
+		if(isNaN(numeros)){
+			alert("El campo: "+nombre_campo+" no empieza por 9 cifras numéricas.");
+			return "";
+		}
+		else if (! isNaN(letra)){
+			alert("El campo: "+nombre_campo+" no debe terminar en una cifra numérica.");
+			return "";
+		}
+		else{
+			letra=letra.toUpperCase(); ; // Ponemos la letra en mayúsculas.
+			letra_correcta = averigua_letra_dni(numeros);
+			if(letra != letra_correcta){
+				alert("El campo: "+nombre_campo+" contiene una letra incorrecta.");
+				return "";
+			}
+		}
+	}
+	dni_correcto=numeros+letra;
+  	document.getElementById('formularioAlta:nif').value=dni_correcto;
+	return dni_correcto;
+    }
+      function validaEnviar(){
             nif=document.getElementById('formularioAlta:nif').value;
             nombre=document.getElementById('formularioAlta:nombre').value;
             apellido1=document.getElementById('formularioAlta:apellido1').value;
@@ -35,9 +74,21 @@
             password2=document.getElementById('formularioAlta:password2').value;
             dpto=document.getElementById('formularioAlta:listaDptos').value;
 
-            if(nif.length==0)
-                document.write("mal");
+        if(nombre.length==0||apellido1.length==0||password.length==0||
+            password2.length==0||dpto.length==0)
+        {
+                alert("Alguno de los campos requeridos no ha sido introducido");
+           }
+          else{
+              if(password!=password2)
+                  alert("Las contraseñas deben ser iguales");
+              else
+                 esDNI();
+          }
+        
+
         }
+
        
     </script>
 <div class="container">

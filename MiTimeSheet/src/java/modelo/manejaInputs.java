@@ -16,7 +16,6 @@ import javax.faces.event.ValueChangeEvent;
 public class manejaInputs{
    private boolean verNombreNif;
    private boolean verListaDptos;
-   private String cadena;
    private String cadena2;
 
     public String getCadena2() {
@@ -26,15 +25,6 @@ public class manejaInputs{
     public void setCadena2(String cadena2) {
         this.cadena2 = cadena2;
     }
-
-    public String getCadena() {
-        return cadena;
-    }
-
-    public void setCadena(String cadena) {
-        this.cadena = cadena;
-    }
-
     public manejaInputs() {
     }
     public boolean isVerListaDptos() {
@@ -53,25 +43,20 @@ public class manejaInputs{
         this.verNombreNif = verNombreNif;
     }
 
-    public void pepe(ValueChangeEvent e){
-        cadena2="enelevento";
-        if(cadena.equalsIgnoreCase("nif")||cadena.equalsIgnoreCase("nombre")){
-           cadena2="entraIf";
+ 
+    public void cambiarVisibilidad(ValueChangeEvent e) {
+       cadena2=e.getNewValue().toString();
+        if(cadena2.equalsIgnoreCase("nif")||cadena2.equalsIgnoreCase("nombre")){
            verNombreNif=true;
            verListaDptos=false;
         }
     else{
-        cadena2="entraElse";
         verListaDptos=true;
         verNombreNif=false;
         }
         FacesContext context=FacesContext.getCurrentInstance();
         UIComponent vista=(UIComponent)context.getViewRoot();
+        vista.setRendered(false);
         vista.setRendered(true);
-    }
-    
-    public void cambiarVisibilidad(ValueChangeEvent vce) {
-        String s=FacesContext.getCurrentInstance().getExternalContext().getRequestMap().get("radios").toString();
-        verNombreNif=true;
     }
 }
