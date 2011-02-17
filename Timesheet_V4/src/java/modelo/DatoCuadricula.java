@@ -59,10 +59,6 @@ public class DatoCuadricula  implements java.io.Serializable {
     public void setDpto(String dpto) {
         this.dpto = dpto;
     }
-
-
-
-
 }
 
 
