@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 16-feb-2011 10:22:28 by Hibernate Tools 3.2.1.GA -->
+
 <hibernate-mapping>
   <class catalog="lacue1_grupo2" name="modelo.DatoCuadricula" table="DatoCuadricula">
     <id name="idDatoCuadricula" type="int">
       <column name="idDatoCuadricula"/>
       <generator class="assigned"/>
     </id>
+    <!--
     <many-to-one class="modelo.Cuadricula" fetch="select" name="cuadricula">
       <column name="idCuadricula" not-null="true"/>
     </many-to-one>
+    -->
     <property name="dia" type="date">
       <column length="10" name="dia" not-null="true"/>
     </property>
