@@ -11,18 +11,17 @@ import java.util.Set;
  */
 public class Cuadricula  implements java.io.Serializable {
 
-
      private Integer idCuadricula;
      private Usuario usuario;
      private Date fechaInicio;
      private String estado;
-     private Set notificacioneses = new HashSet(0);
+    // private Set notificacioneses = new HashSet(0);
      private Set datoCuadriculas = new HashSet(0);
 
     public Cuadricula() {
     }
 
-	
+/*
     public Cuadricula(Usuario usuario, Date fechaInicio) {
         this.usuario = usuario;
         this.fechaInicio = fechaInicio;
@@ -34,7 +33,7 @@ public class Cuadricula  implements java.io.Serializable {
        this.notificacioneses = notificacioneses;
        this.datoCuadriculas = datoCuadriculas;
     }
-   
+  */
     public Integer getIdCuadricula() {
         return this.idCuadricula;
     }
@@ -49,6 +48,7 @@ public class Cuadricula  implements java.io.Serializable {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+
     public Date getFechaInicio() {
         return this.fechaInicio;
     }
@@ -63,6 +63,7 @@ public class Cuadricula  implements java.io.Serializable {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+    /*
     public Set getNotificacioneses() {
         return this.notificacioneses;
     }
@@ -70,6 +71,7 @@ public class Cuadricula  implements java.io.Serializable {
     public void setNotificacioneses(Set notificacioneses) {
         this.notificacioneses = notificacioneses;
     }
+     */
     public Set getDatoCuadriculas() {
         return this.datoCuadriculas;
     }
