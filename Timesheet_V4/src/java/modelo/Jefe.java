@@ -34,9 +34,19 @@ public class Jefe extends Usuario implements Serializable {
                 new Comparator<Notificaciones>(){
                     public int compare (Notificaciones n1, Notificaciones n2)
                     {
-                        return 0;
+                        String nombre1 = n1.getUsuarioByRemitente().getApellido1()+ " " + n1.getUsuarioByRemitente().getApellido2() + ", " + n1.getUsuarioByRemitente().getNombre(); 
+                        String nombre2 = n2.getUsuarioByRemitente().getApellido1()+ " " + n2.getUsuarioByRemitente().getApellido2() + ", " + n2.getUsuarioByRemitente().getNombre();
+                        int result = nombre1.compareToIgnoreCase(nombre2);
+                        if (result == 0)
+                        {
+                            return n1.getFecha().compareTo(n2.getFecha());
+                        }
+                        else
+                        {
+                            return result;
+                        }
                     }
-        });
+                });
         notificaciones.addAll(l);
     }
 
