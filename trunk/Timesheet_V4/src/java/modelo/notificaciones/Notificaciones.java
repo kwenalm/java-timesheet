@@ -17,8 +17,8 @@ public class Notificaciones  implements java.io.Serializable, Comparable<Notific
 
      private int idNotificaciones;
      private Usuario remitente;
-     private Cuadricula cuadricula;
      private Usuario destinatario;
+     private Cuadricula cuadricula;
      /*private String tipo;*/
      private Date fecha;
      /*private Set notificacionDenegadas = new HashSet(0);

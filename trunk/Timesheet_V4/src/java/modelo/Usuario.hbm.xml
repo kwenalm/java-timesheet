@@ -7,6 +7,9 @@
       <column length="9" name="nif"/>
       <generator class="assigned"/>
     </id>
+    <discriminator column="tipo" type="string"/>
+
+    <!-- Atributos de la clase Usuario -->
     <property name="nombre" type="string">
       <column length="45" name="nombre" not-null="true"/>
     </property>
@@ -16,35 +19,36 @@
     <property name="apellido2" type="string">
       <column length="45" name="apellido2"/>
     </property>
-    <property name="tipo" type="string">
-      <column length="14" name="tipo" not-null="true"/>
-    </property>
-    <property name="departamento" type="string">
-      <column length="10" name="departamento"/>
-    </property>
-    <set inverse="true" name="notificacionesesForDestinatario">
-      <key>
-        <column length="9" name="destinatario" not-null="true"/>
-      </key>
-      <one-to-many class="modelo.notificaciones.Notificaciones"/>
-    </set>
-    <set inverse="true" name="notificacionesesForRemitente">
-      <key>
-        <column length="9" name="remitente" not-null="true"/>
-      </key>
-      <one-to-many class="modelo.notificaciones.Notificaciones"/>
-    </set>
-    <set inverse="true" name="autentificacions">
-      <key>
-        <column length="9" name="nif" not-null="true" unique="true"/>
-      </key>
-      <one-to-many class="modelo.Autentificacion"/>
-    </set>
-    <set inverse="true" name="cuadriculas">
-      <key>
-        <column length="9" name="nif" not-null="true"/>
-      </key>
-      <one-to-many class="modelo.Cuadricula"/>
-    </set>
+
+    <!-- Subclase Empleado -->
+    <subclass name="modelo.Empleado" discriminator-value="EMPLEADO">
+        <property name="departamento" column="departamento" type="string"/>
+        <set name="aprobadas" inverse="true">
+            <key column="destinatario" not-null="true" length="9"/>
+            <one-to-many class="modelo.notificaciones.NotificacionAprobada"/>
+        </set>
+        <set name="denegadas" inverse="true">
+            <key column="destinatario" not-null="true" length="9"/>
+            <one-to-many class="modelo.notificaciones.NotificacionDenegada"/>
+        </set>
+        <set name="pendientes" inverse="true">
+            <key column="destinatario" not-null="true" length="9"/>
+            <one-to-many class="modelo.notificaciones.NotificacionPendiente"/>
+        </set>
+    </subclass>
+
+    <!-- Subclase Jefe -->
+    <subclass name="modelo.Empleado" discriminator-value="JEFE">
+        <property name="departamento" column="departamento" type="string"/>
+        <set name="aprobadas" inverse="true">
+            <key column="destinatario" not-null="true" length="9"/>
+            <one-to-many class="modelo.notificaciones.Notificaciones"/>
+        </set>
+    </subclass>
+
+    <!-- Subclase Administrador -->
+    <subclass name="modelo.Empleado" discriminator-value="ADMINISTRADOR">
+    </subclass>
+
   </class>
 </hibernate-mapping>

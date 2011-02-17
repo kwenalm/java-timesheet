@@ -1,6 +1,6 @@
 package modelo;
 
-public class Usuario  implements java.io.Serializable {
+public class Usuario implements java.io.Serializable {
 
      private String nif;
      private String nombre;

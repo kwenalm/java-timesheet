@@ -1,10 +1,10 @@
 package modelo;
 
 import modelo.notificaciones.Notificaciones;
-import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
 import java.util.PriorityQueue;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Empleado extends Usuario implements java.io.Serializable {
 
@@ -18,35 +18,35 @@ public class Empleado extends Usuario implements java.io.Serializable {
 
     }
 
-    public void setPendientes (List<Notificaciones> pendientes)
+    public void setPendientes (Set<Notificaciones> pendientes)
     {
         this.pendientes = new PriorityQueue<Notificaciones>(pendientes);
     }
     
-    public void setAprobadas (List<Notificaciones> aprobadas)
+    public void setAprobadas (Set<Notificaciones> aprobadas)
     {
         this.aprobadas = new PriorityQueue<Notificaciones>(0, new ComparadorNRecientes());
         this.aprobadas.addAll(aprobadas);
     }
     
-    public void setDenegadas (List<Notificaciones> denegadas)
+    public void setDenegadas (Set<Notificaciones> denegadas)
     {
         this.denegadas = new PriorityQueue<Notificaciones>(denegadas);
     }
     
-    public List<Notificaciones> getPendientes ()
+    public Set<Notificaciones> getPendientes ()
     {
-        return new ArrayList<Notificaciones>(this.pendientes);
+        return new TreeSet<Notificaciones>(this.pendientes);
     }
     
-    public List<Notificaciones> getAprobadas ()
+    public Set<Notificaciones> getAprobadas ()
     {
-        return new ArrayList<Notificaciones>(this.aprobadas);
+        return new TreeSet<Notificaciones>(this.aprobadas);
     }
     
-    public List<Notificaciones> getDenegadas ()
+    public Set<Notificaciones> getDenegadas ()
     {
-        return new ArrayList<Notificaciones>(this.denegadas);
+        return new TreeSet<Notificaciones>(this.denegadas);
     }
     
     public void setDepartamento (String dep)
