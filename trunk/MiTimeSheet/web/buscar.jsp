@@ -24,8 +24,6 @@
 </head>
 
 <body>
-  
-
 <div class="container">
   <div class="header"><a href="#"><img src="images/login.jpg" alt="Insert Logo Here" name="Insert_logo" width="800"  height="90" id="Insert_logo" style="background: #8090AB; display:block; margin-left:-10px" /></a>
     <!-- end .header --></div>
@@ -37,12 +35,8 @@
               
  <fieldset class="administracion">
      <legend>Criterios de busqueda de usuarios</legend>
-     <div id="opcionesBusqueda">
-         <h:outputText value="#{miBean.cadena2}"/>
-         <h:outputText value="#{miBean.cadena}"/>
-         <h:outputText value="  nombreNif-->#{miBean.verNombreNif}"/>
-         <h:outputText value="  Dptos-->#{miBean.verListaDptos}"/>
-         <h:selectOneRadio layout="pageDirection" id="radios" onchange="submit()" valueChangeListener="#{miBean.pepe}" value="#{miBean.cadena}">
+     <div id="opcionesBusqueda"> 
+         <h:selectOneRadio layout="pageDirection" id="radios" onchange="submit()" valueChangeListener="#{miBean.cambiarVisibilidad}">
          <f:selectItem id="nif" itemValue="nif" itemLabel="Buscar por nif"/>
          <f:selectItem id="nombre" itemValue="nombre" itemLabel="Buscar por nombre"/>
          <f:selectItem id="dpto" itemValue="dpto" itemLabel="Buscar por departamento"/>
@@ -52,6 +46,9 @@
          
          <h:selectOneListbox rendered="#{miBean.verListaDptos}" id="listaDptos">
          <f:selectItem id="cuentas" itemValue="cuentas" itemLabel="Departamento de cuentas"/>
+         <f:selectItem id="marketing" itemValue="marketing" itemLabel="Departamento de Marketing"/>
+         <f:selectItem id="rrhh" itemValue="rrhh" itemLabel="Departamento de Recursos Humanos"/>
+
      </h:selectOneListbox>
      </div>
  </fieldset>
