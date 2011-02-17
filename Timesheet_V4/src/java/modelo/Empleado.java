@@ -1,18 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package modelo;
+
 import modelo.notificaciones.Notificaciones;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
-/**
- *
- * @author Java I
- */
+
 public class Empleado extends Usuario implements java.io.Serializable {
 
     private PriorityQueue<Notificaciones> pendientes;
