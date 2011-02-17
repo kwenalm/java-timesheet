@@ -16,36 +16,36 @@ public class Notificaciones  implements java.io.Serializable, Comparable<Notific
 
 
      private int idNotificaciones;
-     private Usuario usuarioByRemitente;
+     private Usuario remitente;
      private Cuadricula cuadricula;
-     private Usuario usuarioByDestinatario;
-     private String tipo;
+     private Usuario destinatario;
+     /*private String tipo;*/
      private Date fecha;
-     private Set notificacionDenegadas = new HashSet(0);
+     /*private Set notificacionDenegadas = new HashSet(0);
      private Set notificacionPendientes = new HashSet(0);
-
+*/
     public Notificaciones() {
     }
 
-	
+/*
     public Notificaciones(int idNotificaciones, Usuario usuarioByRemitente, Cuadricula cuadricula, Usuario usuarioByDestinatario, Date fecha) {
         this.idNotificaciones = idNotificaciones;
-        this.usuarioByRemitente = usuarioByRemitente;
+        this.remitente = usuarioByRemitente;
         this.cuadricula = cuadricula;
-        this.usuarioByDestinatario = usuarioByDestinatario;
+        this.destinatario = usuarioByDestinatario;
         this.fecha = fecha;
     }
     public Notificaciones(int idNotificaciones, Usuario usuarioByRemitente, Cuadricula cuadricula, Usuario usuarioByDestinatario, String tipo, Date fecha, Set notificacionDenegadas, Set notificacionPendientes) {
        this.idNotificaciones = idNotificaciones;
-       this.usuarioByRemitente = usuarioByRemitente;
+       this.remitente = usuarioByRemitente;
        this.cuadricula = cuadricula;
-       this.usuarioByDestinatario = usuarioByDestinatario;
-       this.tipo = tipo;
+       this.destinatario = usuarioByDestinatario;
+       /*this.tipo = tipo;
        this.fecha = fecha;
-       this.notificacionDenegadas = notificacionDenegadas;
+      /* this.notificacionDenegadas = notificacionDenegadas;
        this.notificacionPendientes = notificacionPendientes;
     }
-   
+  */
     public int getIdNotificaciones() {
         return this.idNotificaciones;
     }
@@ -53,12 +53,12 @@ public class Notificaciones  implements java.io.Serializable, Comparable<Notific
     public void setIdNotificaciones(int idNotificaciones) {
         this.idNotificaciones = idNotificaciones;
     }
-    public Usuario getUsuarioByRemitente() {
-        return this.usuarioByRemitente;
+    public Usuario getRemitente() {
+        return this.remitente;
     }
     
-    public void setUsuarioByRemitente(Usuario usuarioByRemitente) {
-        this.usuarioByRemitente = usuarioByRemitente;
+    public void setRemitente(Usuario usuarioByRemitente) {
+        this.remitente = usuarioByRemitente;
     }
     public Cuadricula getCuadricula() {
         return this.cuadricula;
@@ -67,20 +67,22 @@ public class Notificaciones  implements java.io.Serializable, Comparable<Notific
     public void setCuadricula(Cuadricula cuadricula) {
         this.cuadricula = cuadricula;
     }
-    public Usuario getUsuarioByDestinatario() {
-        return this.usuarioByDestinatario;
+    public Usuario getDestinatario() {
+        return this.destinatario;
     }
     
-    public void setUsuarioByDestinatario(Usuario usuarioByDestinatario) {
-        this.usuarioByDestinatario = usuarioByDestinatario;
+    public void setDestinatario(Usuario usuarioByDestinatario) {
+        this.destinatario = usuarioByDestinatario;
     }
+    /*
     public String getTipo() {
         return this.tipo;
     }
     
     public void setTipo(String tipo) {
         this.tipo = tipo;
-    }
+    }*/
+
     public Date getFecha() {
         return this.fecha;
     }
@@ -88,6 +90,7 @@ public class Notificaciones  implements java.io.Serializable, Comparable<Notific
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
+    /*
     public Set getNotificacionDenegadas() {
         return this.notificacionDenegadas;
     }
@@ -102,22 +105,12 @@ public class Notificaciones  implements java.io.Serializable, Comparable<Notific
     public void setNotificacionPendientes(Set notificacionPendientes) {
         this.notificacionPendientes = notificacionPendientes;
     }
-
+*/
     // Orden natural: Primero las fechas más antiguas
     public int compareTo (Notificaciones n)
     {
         return fecha.compareTo(n.fecha);
     }
-
-
-
-    private class ComparatorNJefe implements Comparator<Notificaciones>
-    {
-        public int compare(Notificaciones n1, Notificaciones n2) {
-            return 0;
-        }
-    }
-
 
 }
 
