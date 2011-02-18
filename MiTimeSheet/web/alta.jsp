@@ -132,9 +132,9 @@
                   <td><h:outputText value="Departamento:"/></td>
                   <td>
                       <h:selectOneListbox id="listaDptos" style="margin-left:10px">
-                          <f:selectItem id="cuentas" itemValue="Cuentas"/>
-                          <f:selectItem id="marketing" itemValue="Marketing"/>
-                          <f:selectItem id="rrhh" itemValue="Recursos Humanos"/>
+                          <f:selectItem id="cuentas" itemValue="Departamento de Cuentas"/>
+                          <f:selectItem id="marketing" itemValue="Departamento de Marketing"/>
+                          <f:selectItem id="rrhh" itemValue="Departamento de Recursos Humanos"/>
                       </h:selectOneListbox>
                   </td>
              </tr>
@@ -151,11 +151,11 @@
 
 
                             <div id="boton">
-                                <h:commandButton type="button" id="proceder" value="Proceder" onclick="validaEnviar()" />
+                                <h:commandButton  id="proceder" value="Proceder" onclick="validaEnviar()" />
 
                                 <h:commandButton type="reset" id="reset" value="Restaurar" style="margin-left:10px" />
 
-                                <h:commandButton type="button" id="volver" value="Volver" style="margin-left:10px" onclick="opcionesAdmin.jsp"/>
+                                <h:commandButton  id="volver" value="Volver" style="margin-left:10px" action="volver"/>
                             </div>
           </h:form>
 
