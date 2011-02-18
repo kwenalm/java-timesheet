@@ -18,7 +18,6 @@ public class Comprobaciones {
         autentificacion=new Autentificacion();
         autentificacion.setNif(usuario);
         autentificacion.setClave(clave);
-        System.out.println(autentificacion.getNif() + " " + autentificacion.getClave());
         return autentificacion.existe();
     }
     
@@ -44,8 +43,5 @@ public class Comprobaciones {
 
     public void setUsuario(String usuario) {
         this.usuario = usuario;
-    }
-    public Comprobaciones(){
-        
     }
 }
