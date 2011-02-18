@@ -23,11 +23,11 @@
   <div class="header"><a href="#"><img src="images/login.jpg" alt="Insert Logo Here" name="Insert_logo" width="800"  height="90" id="Insert_logo" style="background: #8090AB; display:block; margin-left:-10px" /></a>
     <!-- end .header --></div>
   <div class="content"><div id="formulario">
-          <h:form  id="formularioLogeo" >
+          <h:form id="formularioLogeo">
 
-
+          
  <fieldset class="login">
-
+     
 			<legend>Identifíquese</legend>
 			<div id="usuario">
                             Usuario:<h:inputText id="username" style="margin-left:37px" />
@@ -37,7 +37,7 @@
 			</div>
             </fieldset>
                             <div id="boton">
-                                <h:commandButton value="Enviar" action="opcionesAdmin" style="margin-left:-10px"/>
+                                <h:commandButton value="Enviar" action="volver" style="margin-left:-10px"/>
                                 <h:commandButton value="Restaurar" type="reset" style="margin-left:10px"/>
                             </div>
           </h:form>
@@ -48,7 +48,6 @@
     <!-- end .content --></div>
   <div class="footer">
     Todos los derechos reservados - 2011
-
   </div>
 </div>
 </body>
