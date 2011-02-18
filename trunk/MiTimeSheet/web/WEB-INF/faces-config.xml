@@ -11,5 +11,15 @@
         <managed-bean-class>modelo.manejaInputs</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
-    
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>volver</from-outcome>
+            <to-view-id>/opcionesAdmin.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>linkeador</managed-bean-name>
+        <managed-bean-class>modelo.LinksBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
 </faces-config>

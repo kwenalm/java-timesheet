@@ -45,7 +45,7 @@
          <h:inputText id="inputNombreNif"  rendered="#{miBean.verNombreNif}" />
          
          <h:selectOneListbox rendered="#{miBean.verListaDptos}" id="listaDptos">
-         <f:selectItem id="cuentas" itemValue="cuentas" itemLabel="Departamento de cuentas"/>
+         <f:selectItem id="cuentas" itemValue="cuentas" itemLabel="Departamento de Cuentas"/>
          <f:selectItem id="marketing" itemValue="marketing" itemLabel="Departamento de Marketing"/>
          <f:selectItem id="rrhh" itemValue="rrhh" itemLabel="Departamento de Recursos Humanos"/>
 
@@ -55,11 +55,11 @@
     
               
                             <div id="boton">
-                                <h:commandButton type="button" id="proceder" value="Proceder"/>
+                                <h:commandButton  id="proceder" value="Proceder"/>
                                
                                 <h:commandButton type="reset" id="reset" value="Restaurar" style="margin-left:10px" />
                               
-                                <h:commandButton type="button" id="volver" value="Volver" style="margin-left:10px" onclick="opcionesAdmin.jsp"/>
+                                <h:commandButton  id="volver" value="Volver" style="margin-left:10px" action="volver"/>
                             </div>
           </h:form>
 
