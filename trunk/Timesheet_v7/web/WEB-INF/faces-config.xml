@@ -30,8 +30,16 @@
     <navigation-rule>
         <from-view-id>/welcomeJSF.jsp</from-view-id>
         <navigation-case>
-            <from-outcome>existe</from-outcome>
+            <from-outcome>administrador</from-outcome>
             <to-view-id>/opcionesAdmin.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>jefe</from-outcome>
+            <to-view-id>/opcionesJefe.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>empleado</from-outcome>
+            <to-view-id>/opcionesEmpleado.jsp</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>noexiste</from-outcome>
