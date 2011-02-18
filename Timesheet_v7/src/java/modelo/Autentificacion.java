@@ -1,5 +1,8 @@
 package modelo;
 
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
 public class Autentificacion  implements java.io.Serializable {
 
      private String nif;
@@ -40,18 +43,25 @@ public class Autentificacion  implements java.io.Serializable {
     public void setClave(String clave) {
         this.clave = clave;
     }
-    
-    public String existe(){
-        Autentificacion user = null;
-        System.out.println("entro");
-        try {
-            user = dao.AbstractDAO.getEntidad(nif, Autentificacion.class);
-        } catch (Exception e) {
-            System.out.println(user);
-        }
-        String result;
 
-        result = clave == user.clave ? "existe" : "noexiste";
+    public String existe2(){
+        //Session sesion=dao.HibernateUtil.getSessionFactory().openSession();
+        //Transaction tx=sesion.beginTransaction();
+        Autentificacion a = dao.Conexion.getEntidad(nif, Autentificacion.class);
+        //Autentificacion a=(Autentificacion) sesion.get(modelo.Autentificacion.class, new String("26800908C"));
+      //  tx.commit();
+        //sesion.close();
+        return "existe";
+    }
+    public String existe(){
+       // Autentificacion user = null;
+       // System.out.println("entro");
+        //user = dao.AbstractDAO.getEntidad(nif, modelo.Autentificacion.class);
+        //System.out.println(user);
+        Autentificacion a = dao.Conexion.getEntidad(nif, Autentificacion.class);
+        String result;
+        result = clave.equals(a.getClave()) ? "existe" : "noexiste";
+ 
         return result;
     }
 

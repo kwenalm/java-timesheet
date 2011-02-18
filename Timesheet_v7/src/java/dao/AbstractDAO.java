@@ -4,20 +4,23 @@ import java.io.Serializable;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 public abstract class AbstractDAO
 {
     private Session sesion;
+    private Transaction tx;
 
     protected void iniciaOperacion()
     {
         sesion = HibernateUtil.getSessionFactory().openSession();
-        sesion.getTransaction().begin();
+        tx=sesion.getTransaction();
+        tx.begin();
     }
 
     protected void terminaOperacion()
     {
-        sesion.getTransaction().commit();
+        tx.commit();
         sesion.close();
     }
 
@@ -83,9 +86,11 @@ public abstract class AbstractDAO
             dummy.iniciaOperacion();
             objetoRecuperado = (T) dummy.getSession().get(claseEntidad, id);
         }
-        catch (HibernateException he)
+        catch (Exception he)
         {
-            dummy.manejaExcepcion(he);
+            //dummy.manejaExcepcion(he);
+            String error = he.getMessage();
+            String nada="";
         }
         finally
         {
