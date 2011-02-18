@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class catalog="lacue1_grupo2" name="modelo.notificaciones.Notificaciones" table="Notificaciones">
+    <id name="idNotificaciones" type="int">
+      <column name="idNotificaciones"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="modelo.Usuario" fetch="select" name="remitente">
+      <column length="9" name="remitente" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="modelo.Usuario" fetch="select" name="destinatario">
+      <column length="9" name="destinatario" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="modelo.Cuadricula" fetch="select" name="cuadricula">
+      <column name="idCuadricula" not-null="true"/>
+    </many-to-one>
+    <!--
+    <property name="tipo" type="string">
+      <column length="9" name="tipo"/>
+    </property>
+    -->
+    <property name="fecha" type="date">
+      <column length="10" name="fecha" not-null="true"/>
+    </property>
+
+
+    <!-- Subclase NotificacionAprobada -->
+    <subclass name="modelo.notificaciones.NotificacionAprobada" discriminator-value="APROBADA">
+    </subclass>
+
+    <!-- Subclase NotificacionDenegada -->
+    <subclass name="modelo.notificaciones.NotificacionDenegada" discriminator-value="DENEGADA">
+        <join table="NotificacionDenegada">
+            <key column="idNotificaciones"/>
+            <property name="motivo" column="motivo" type="string"/>
+        </join>
+    </subclass>
+
+    <!-- Subclase NotificacionDenegada -->
+    <subclass name="modelo.notificaciones.NotificacionPendiente" discriminator-value="PENDIENTE">
+        <join table="NotificacionPendiente">
+            <key column="idNotificaciones"/>
+            <property name="plazo" column="plazo" type="date"/>
+        </join>
+    </subclass>
+    
+    <!--
+    <set inverse="true" name="notificacionDenegadas">
+      <key>
+        <column name="idNotificaciones" not-null="true" unique="true"/>
+      </key>
+      <one-to-many class="modelo.notificaciones.NotificacionDenegada"/>
+    </set>
+    <set inverse="true" name="notificacionPendientes">
+      <key>
+        <column name="idNotificaciones" not-null="true" unique="true"/>
+      </key>
+      <one-to-many class="modelo.notificaciones.NotificacionPendiente"/>
+    </set>
+    -->
+  </class>
+</hibernate-mapping>
