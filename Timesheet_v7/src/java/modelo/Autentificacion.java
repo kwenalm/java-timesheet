@@ -57,8 +57,33 @@ public class Autentificacion  implements java.io.Serializable {
     public String existe(){
         Autentificacion a = dao.Conexion.getEntidad(nif, Autentificacion.class);
         String result;
-        result = clave.equals(a.getClave()) ? "existe" : "noexiste";
- 
+        if (a!=null)
+        {
+            if (clave.equals(a.getClave()))
+            {
+                Usuario user = dao.Conexion.getEntidad(nif,modelo.Usuario.class );
+                if (user instanceof Empleado)
+                {
+                    result = "empleado";
+                }
+                else if (user instanceof Jefe)
+                {
+                    result = "jefe";
+                }
+                else
+                {
+                    result = "administrador";
+                }
+            }
+            else
+            {
+                result = "noexiste";
+            }
+        }
+        else
+        {
+            result = "noexiste";
+        }
         return result;
     }
 

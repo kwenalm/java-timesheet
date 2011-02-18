@@ -8,13 +8,17 @@
     <property name="hibernate.connection.username">lacue1_grupo2</property>
     <property name="hibernate.connection.password">grupojava</property>
     <property name="hibernate.current_session_context_class">thread</property>
- <!--   <mapping resource="modelo/Notificaciones.hbm.xml"/>
+
+
+   <!-- <mapping resource="modelo/Notificaciones.hbm.xml"/>
     <mapping resource="modelo/DatoCuadricula.hbm.xml"/>
     <mapping resource="modelo/NotificacionDenegada.hbm.xml"/>
-    <mapping resource="modelo/Usuario.hbm.xml"/>
     <mapping resource="modelo/Cuadricula.hbm.xml"/>
     <mapping resource="modelo/NotificacionPendiente.hbm.xml"/> -->
+ 
     <mapping resource="modelo/Autentificacion.hbm.xml"/>
+    <mapping resource="modelo/Usuario.hbm.xml"/>
+
     
   </session-factory>
 </hibernate-configuration>
