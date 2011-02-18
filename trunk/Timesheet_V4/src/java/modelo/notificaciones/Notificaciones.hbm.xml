@@ -27,23 +27,24 @@
 
 
     <!-- Subclase NotificacionAprobada -->
-    <subclass name="modelo.Empleado" discriminator-value="EMPLEADO">
+    <subclass name="modelo.notificaciones.NotificacionAprobada" discriminator-value="APROBADA">
     </subclass>
 
     <!-- Subclase NotificacionDenegada -->
-    <subclass name="modelo.Empleado" discriminator-value="JEFE">
-        <property name="departamento" column="departamento" type="string"/>
-        <set name="aprobadas" inverse="true">
-            <key column="destinatario" not-null="true" length="9"/>
-            <one-to-many class="modelo.notificaciones.Notificaciones"/>
-        </set>
+    <subclass name="modelo.notificaciones.NotificacionDenegada" discriminator-value="DENEGADA">
+        <join table="NotificacionDenegada">
+            <key column="idNotificaciones"/>
+            <property name="motivo" column="motivo" type="string"/>
+        </join>
     </subclass>
 
-    <!-- Subclase Administrador -->
-    <subclass name="modelo.Empleado" discriminator-value="ADMINISTRADOR">
+    <!-- Subclase NotificacionDenegada -->
+    <subclass name="modelo.notificaciones.NotificacionPendiente" discriminator-value="PENDIENTE">
+        <join table="NotificacionPendiente">
+            <key column="idNotificaciones"/>
+            <property name="plazo" column="plazo" type="date"/>
+        </join>
     </subclass>
-
-
     
     <!--
     <set inverse="true" name="notificacionDenegadas">
