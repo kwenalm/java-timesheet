@@ -2,7 +2,7 @@ package modelo.notificaciones;
 
 public class NotificacionDenegada extends Notificaciones implements java.io.Serializable {
 
-     private int idNotificaciones;
+     // private int idNotificaciones;
      //private Notificaciones notificaciones;
      private String motivo;
 
@@ -20,13 +20,13 @@ public class NotificacionDenegada extends Notificaciones implements java.io.Seri
        this.motivo = motivo;
     }
   */
-    public int getIdNotificaciones() {
-        return this.idNotificaciones;
-    }
-    
-    public void setIdNotificaciones(int idNotificaciones) {
-        this.idNotificaciones = idNotificaciones;
-    }
+//    public int getIdNotificaciones() {
+//        return this.idNotificaciones;
+//    }
+//
+//    public void setIdNotificaciones(int idNotificaciones) {
+//        this.idNotificaciones = idNotificaciones;
+//    }
     /*
     public Notificaciones getNotificaciones() {
         return this.notificaciones;

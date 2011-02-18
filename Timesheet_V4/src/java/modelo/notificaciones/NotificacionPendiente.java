@@ -10,7 +10,7 @@ import java.util.Date;
 public class NotificacionPendiente extends Notificaciones implements java.io.Serializable {
 
 
-     private int idNotificaciones;
+     // private int idNotificaciones;
     // private Notificaciones notificaciones;
      private Date plazo;
 
@@ -23,13 +23,13 @@ public class NotificacionPendiente extends Notificaciones implements java.io.Ser
        this.plazo = plazo;
     }
   */
-    public int getIdNotificaciones() {
-        return this.idNotificaciones;
-    }
-    
-    public void setIdNotificaciones(int idNotificaciones) {
-        this.idNotificaciones = idNotificaciones;
-    }
+//    public int getIdNotificaciones() {
+//        return this.idNotificaciones;
+//    }
+//
+//    public void setIdNotificaciones(int idNotificaciones) {
+//        this.idNotificaciones = idNotificaciones;
+//    }
     /*
     public Notificaciones getNotificaciones() {
         return this.notificaciones;
