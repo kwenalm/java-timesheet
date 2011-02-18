@@ -30,14 +30,14 @@
      
 			<legend>Identifíquese</legend>
 			<div id="usuario">
-                            Usuario:<h:inputText id="username" style="margin-left:37px" />
+                            Usuario:<h:inputText id="username" style="margin-left:37px" value="#{comprobador.usuario}" />
 			</div>
 			<div id="clave">
-                            Contraseña: <h:inputSecret id="password" />
+                            Contraseña: <h:inputSecret id="password" value="#{comprobador.clave}"/>
 			</div>
             </fieldset>
                             <div id="boton">
-                                <h:commandButton value="Enviar" action="volver" style="margin-left:-10px"/>
+                                <h:commandButton value="Enviar" action="#{comprobador.comprobar}" style="margin-left:-10px"/>
                                 <h:commandButton value="Restaurar" type="reset" style="margin-left:10px"/>
                             </div>
           </h:form>

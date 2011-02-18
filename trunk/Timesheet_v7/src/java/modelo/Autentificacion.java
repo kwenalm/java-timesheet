@@ -40,6 +40,20 @@ public class Autentificacion  implements java.io.Serializable {
     public void setClave(String clave) {
         this.clave = clave;
     }
+    
+    public String existe(){
+        Autentificacion user = null;
+        System.out.println("entro");
+        try {
+            user = dao.AbstractDAO.getEntidad(nif, Autentificacion.class);
+        } catch (Exception e) {
+            System.out.println(user);
+        }
+        String result;
+
+        result = clave == user.clave ? "existe" : "noexiste";
+        return result;
+    }
 
 }
 
