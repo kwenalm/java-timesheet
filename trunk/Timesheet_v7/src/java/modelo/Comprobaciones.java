@@ -18,6 +18,9 @@ public class Comprobaciones {
         autentificacion=new Autentificacion();
         autentificacion.setNif(usuario);
         autentificacion.setClave(clave);
+        // Si existe se ha de recuperar el tipo del usuario para entrar
+        //de una forma u otra al sistema.
+
         return autentificacion.existe();
     }
     
