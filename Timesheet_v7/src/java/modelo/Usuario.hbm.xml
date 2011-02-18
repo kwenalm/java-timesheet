@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16-feb-2011 10:22:28 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="lacue1_grupo2" name="modelo.Usuario" table="Usuario">
+    <id name="nif" type="string">
+      <column length="9" name="nif"/>
+      <generator class="assigned"/>
+    </id>
+    <discriminator column="tipo" type="string"/>
+
+    <!-- Atributos de la clase Usuario -->
+    <property name="nombre" type="string">
+      <column length="45" name="nombre" not-null="true"/>
+    </property>
+    <property name="apellido1" type="string">
+      <column length="45" name="apellido1" not-null="true"/>
+    </property>
+    <property name="apellido2" type="string">
+      <column length="45" name="apellido2"/>
+    </property>
+
+    <!-- Subclase Empleado -->
+    <subclass name="modelo.Empleado" discriminator-value="EMPLEADO">
+        <property name="departamento" column="departamento" type="string"/>
+        <set name="aprobadas" inverse="true">
+            <key column="destinatario" not-null="true" length="9"/>
+            <one-to-many class="modelo.notificaciones.NotificacionAprobada"/>
+        </set>
+        <set name="denegadas" inverse="true">
+            <key column="destinatario" not-null="true" length="9"/>
+            <one-to-many class="modelo.notificaciones.NotificacionDenegada"/>
+        </set>
+        <set name="pendientes" inverse="true">
+            <key column="destinatario" not-null="true" length="9"/>
+            <one-to-many class="modelo.notificaciones.NotificacionPendiente"/>
+        </set>
+        <set name="cuadriculas" inverse="true">
+            <key column="nif" not-null="true" length="9"/>
+            <one-to-many class="modelo.Cuadricula"/>
+        </set>
+    </subclass>
+
+    <!-- Subclase Jefe -->
+    <subclass name="modelo.Empleado" discriminator-value="JEFE">
+        <property name="departamento" column="departamento" type="string"/>
+        <set name="aprobadas" inverse="true">
+            <key column="destinatario" not-null="true" length="9"/>
+            <one-to-many class="modelo.notificaciones.Notificaciones"/>
+        </set>
+    </subclass>
+
+    <!-- Subclase Administrador -->
+    <subclass name="modelo.Empleado" discriminator-value="ADMINISTRADOR">
+    </subclass>
+
+  </class>
+</hibernate-mapping>
