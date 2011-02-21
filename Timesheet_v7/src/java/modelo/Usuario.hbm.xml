@@ -42,10 +42,11 @@
 
     <subclass name="modelo.Jefe" discriminator-value="JEFE">
         <property name="departamento" column="departamento" type="string"/>
+        <!--
         <set name="notificaciones" inverse="true">
             <key column="destinatario" not-null="true" length="9"/>
             <one-to-many class="modelo.notificaciones.Notificaciones"/>
-        </set>
+        </set> -->
     </subclass>
     <subclass name="modelo.Administrador" discriminator-value="ADMINISTRADOR">
     </subclass>

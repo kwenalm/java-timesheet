@@ -1,9 +1,6 @@
 package modelo;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.PriorityQueue;
 import java.util.Set;
 import java.util.TreeSet;
 import modelo.notificaciones.Notificaciones;
@@ -23,7 +20,7 @@ public class Jefe extends Usuario implements Serializable {
     }
 
     public void setNotificaciones(Set l) {
-        notificaciones = new TreeSet<Notificaciones>(
+        notificaciones = new TreeSet(
                 new Comparator<Notificaciones>(){
                     public int compare (Notificaciones n1, Notificaciones n2)
                     {
