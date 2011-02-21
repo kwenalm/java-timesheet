@@ -4,13 +4,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
+import java.util.Set;
+import java.util.TreeSet;
 import modelo.notificaciones.Notificaciones;
 import java.util.Comparator;
 
 public class Jefe extends Usuario implements Serializable {
 
     private String departamento;
-    private PriorityQueue<Notificaciones> notificaciones;
+    private Set notificaciones;
 
     public Jefe() {
 
@@ -20,8 +22,8 @@ public class Jefe extends Usuario implements Serializable {
         departamento = s;
     }
 
-    public void setNotificaciones(List<Notificaciones> l) {
-        notificaciones = new PriorityQueue<Notificaciones>(0,
+    public void setNotificaciones(Set l) {
+        notificaciones = new TreeSet<Notificaciones>(
                 new Comparator<Notificaciones>(){
                     public int compare (Notificaciones n1, Notificaciones n2)
                     {
@@ -45,7 +47,7 @@ public class Jefe extends Usuario implements Serializable {
         return departamento;
     }
 
-    public List<Notificaciones> getNotificaciones() {
-        return new ArrayList<Notificaciones>(notificaciones);
+    public Set getNotificaciones() {
+        return new TreeSet(notificaciones);
     }
 }
