@@ -43,16 +43,7 @@ public class Autentificacion  implements java.io.Serializable {
     public void setClave(String clave) {
         this.clave = clave;
     }
-/*
-    public String existe2(){
-        //Session sesion=dao.HibernateUtil.getSessionFactory().openSession();
-        //Transaction tx=sesion.beginTransaction();
-        Autentificacion a = dao.Conexion.getEntidad(nif, Autentificacion.class);
-        //Autentificacion a=(Autentificacion) sesion.get(modelo.Autentificacion.class, new String("26800908C"));
-      //  tx.commit();
-        //sesion.close();
-        return "existe";
-    }*/
+
 
     public String existe(){
         Autentificacion a = dao.Conexion.getEntidad(nif, Autentificacion.class);

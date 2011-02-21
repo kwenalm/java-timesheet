@@ -10,15 +10,14 @@
     <property name="hibernate.current_session_context_class">thread</property>
 
 
-   <!-- <mapping resource="modelo/Notificaciones.hbm.xml"/>
-    <mapping resource="modelo/DatoCuadricula.hbm.xml"/>
-    <mapping resource="modelo/NotificacionDenegada.hbm.xml"/>
-    <mapping resource="modelo/Cuadricula.hbm.xml"/>
-    <mapping resource="modelo/NotificacionPendiente.hbm.xml"/> -->
- 
+   <mapping resource ="modelo/notificaciones/Notificaciones.hbm.xml"/> 
+<!--
+    <mapping resource="modelo/notificaciones/NotificacionDenegada.hbm.xml"/>
+    <mapping resource="modelo/notificaciones/NotificacionPendiente.hbm.xml"/>
+-->
     <mapping resource="modelo/Autentificacion.hbm.xml"/>
     <mapping resource="modelo/Usuario.hbm.xml"/>
-
-    
+    <mapping resource="modelo/Cuadricula.hbm.xml"/>
+    <mapping resource="modelo/DatoCuadricula.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
