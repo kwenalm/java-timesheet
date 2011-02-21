@@ -28,7 +28,6 @@
             <many-to-many class="modelo.notificaciones.NotificacionAprobada" column="idNotificacion" />
         </set>
 
-
         <set name="denegadas" table="RemNot" >
             <key column="nif"/>
             <many-to-many class="modelo.notificaciones.NotificacionDenegada" column="idNotificacion" />
@@ -38,25 +37,12 @@
             <key column="nif"/>
             <many-to-many class="modelo.notificaciones.Notificaciones" column="idNotificacion" />
         </set>
-
-        <!--<set name="aprobadas" inverse="true">
-            <key column="destinatario" not-null="true" length="9"/>
-            <one-to-many class="modelo.notificaciones.NotificacionAprobada"/>
-        </set>
-
-
-        <set name="denegadas" inverse="true">
-            <key column="destinatario" not-null="true" length="9"/>
-            <one-to-many class="modelo.notificaciones.NotificacionDenegada"/>
-        </set>
-        <set name="pendientes" inverse="true">
-            <key column="destinatario" not-null="true" length="9"/>
-            <one-to-many class="modelo.notificaciones.NotificacionPendiente"/>
-        </set>
-        <set name="cuadriculas" inverse="true">
-            <key column="nif" not-null="true" length="9"/>
+        
+        <set name="cuadriculas">
+            <key column="nif"/>
             <one-to-many class="modelo.Cuadricula"/>
-        </set>-->
+        </set>
+        
     </subclass>
 
     <subclass name="modelo.Jefe" discriminator-value="JEFE">
@@ -67,6 +53,7 @@
             <many-to-many class="modelo.notificaciones.Notificaciones" column="idNotificacion" />
         </set>
     </subclass>
+
     <subclass name="modelo.Administrador" discriminator-value="ADMINISTRADOR">
     </subclass>
 

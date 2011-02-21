@@ -16,18 +16,11 @@
     <property name="estado" type="string">
       <column length="9" name="estado"/>
     </property>
-    <!--
-    <set inverse="true" name="notificacioneses">
-      <key>
-        <column name="idCuadricula" not-null="true"/>
-      </key>
-      <one-to-many class="modelo.notificaciones.Notificaciones"/>
-    </set> -->
-    <set inverse="true" name="datosCuadricula">
-      <key>
-        <column name="idCuadricula" not-null="true"/>
-      </key>
+    <set name="datosCuadricula">
+      <key column="idCuadricula" not-null="true"/>
       <one-to-many class="modelo.DatoCuadricula"/>
     </set>
+
+
   </class>
 </hibernate-mapping>

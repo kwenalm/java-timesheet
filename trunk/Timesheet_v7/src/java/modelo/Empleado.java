@@ -2,9 +2,6 @@ package modelo;
 
 import modelo.notificaciones.Notificaciones;
 import java.util.Comparator;
-import java.util.PriorityQueue;
-import java.util.Set;
-import java.util.TreeSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -13,7 +10,7 @@ public class Empleado extends Usuario implements java.io.Serializable {
     private Set pendientes;
     private Set aprobadas;
     private Set denegadas;
-    private PriorityQueue<Cuadricula> cuadriculas;
+    private Set cuadriculas;
     private String departamento;
 
     public Empleado()
@@ -28,8 +25,9 @@ public class Empleado extends Usuario implements java.io.Serializable {
 
     public void setAprobadas (Set aprobadas)
     {
-        this.aprobadas = new TreeSet( new ComparadorNRecientes());
-        this.aprobadas.addAll(aprobadas);
+        this.aprobadas=aprobadas;
+        //this.aprobadas = new TreeSet( new ComparadorNRecientes());
+       // this.aprobadas.addAll(aprobadas);
     }
 
     public void setDenegadas (Set denegadas)
@@ -39,17 +37,20 @@ public class Empleado extends Usuario implements java.io.Serializable {
 
     public Set getPendientes ()
     {
-        return new TreeSet(this.pendientes);
+        return this.pendientes;
+        //return new TreeSet(this.pendientes);
     }
 
     public Set getAprobadas ()
     {
-        return new TreeSet(this.aprobadas);
+        return this.aprobadas;
+        //return new TreeSet(this.aprobadas);
     }
 
     public Set getDenegadas ()
     {
-        return new TreeSet(this.denegadas);
+        return this.denegadas;
+        //return new TreeSet(this.denegadas);
     }
 
     public void setDepartamento (String dep)
@@ -62,14 +63,15 @@ public class Empleado extends Usuario implements java.io.Serializable {
         return this.departamento;
     }
 
-    public void setCuadriculas(Set<Cuadricula> c)
+    public void setCuadriculas(Set c)
     {
-        cuadriculas = new PriorityQueue<Cuadricula>(c);
+        cuadriculas = c;
     }
 
-    public Set<Cuadricula> getCuadriculas()
+    public Set getCuadriculas()
     {
-        return new TreeSet(cuadriculas);
+        return this.cuadriculas;
+       // return new TreeSet(this.cuadriculas);
     }
 
     private class ComparadorNRecientes implements Comparator<Notificaciones>
