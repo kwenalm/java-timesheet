@@ -5,12 +5,14 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Empleado extends Usuario implements java.io.Serializable {
 
-    private PriorityQueue<Notificaciones> pendientes;
-    private PriorityQueue<Notificaciones> aprobadas;
-    private PriorityQueue<Notificaciones> denegadas;
+    private Set pendientes;
+    private Set aprobadas;
+    private Set denegadas;
     private PriorityQueue<Cuadricula> cuadriculas;
     private String departamento;
 
@@ -19,35 +21,35 @@ public class Empleado extends Usuario implements java.io.Serializable {
 
     }
 
-    public void setPendientes (Set<Notificaciones> pendientes)
+    public void setPendientes (Set pendientes)
     {
-        this.pendientes = new PriorityQueue<Notificaciones>(pendientes);
+        this.pendientes = pendientes;
     }
 
-    public void setAprobadas (Set<Notificaciones> aprobadas)
+    public void setAprobadas (Set aprobadas)
     {
-        this.aprobadas = new PriorityQueue<Notificaciones>(0, new ComparadorNRecientes());
+        this.aprobadas = new TreeSet( new ComparadorNRecientes());
         this.aprobadas.addAll(aprobadas);
     }
 
-    public void setDenegadas (Set<Notificaciones> denegadas)
+    public void setDenegadas (Set denegadas)
     {
-        this.denegadas = new PriorityQueue<Notificaciones>(denegadas);
+        this.denegadas = denegadas;
     }
 
-    public Set<Notificaciones> getPendientes ()
+    public Set getPendientes ()
     {
-        return new TreeSet<Notificaciones>(this.pendientes);
+        return new TreeSet(this.pendientes);
     }
 
-    public Set<Notificaciones> getAprobadas ()
+    public Set getAprobadas ()
     {
-        return new TreeSet<Notificaciones>(this.aprobadas);
+        return new TreeSet(this.aprobadas);
     }
 
-    public Set<Notificaciones> getDenegadas ()
+    public Set getDenegadas ()
     {
-        return new TreeSet<Notificaciones>(this.denegadas);
+        return new TreeSet(this.denegadas);
     }
 
     public void setDepartamento (String dep)
