@@ -47,4 +47,24 @@ public class Conexion {
 
         return objetoRecuperado;
     }
+
+    public static void almacenaEntidad(Object entidad) throws HibernateException
+    {
+        Conexion dummy = new Conexion(){};
+
+        try
+        {
+            dummy.iniciaOperacion();
+            dummy.getSesion().saveOrUpdate(entidad);
+            dummy.getSesion().flush();
+        }
+        catch (HibernateException he)
+        {
+            //dummy.manejaExcepcion(he);
+        }
+        finally
+        {
+            dummy.terminaOperacion();
+        }
+    }
 }

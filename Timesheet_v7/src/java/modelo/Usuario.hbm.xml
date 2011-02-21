@@ -22,10 +22,29 @@
 
     <subclass name="modelo.Empleado" discriminator-value="EMPLEADO">
         <property name="departamento" column="departamento" type="string"/>
+
+        <set name="aprobadas" table="RemNot" >
+            <key column="nif"/>
+            <many-to-many class="modelo.notificaciones.NotificacionAprobada" column="idNotificacion" />
+        </set>
+
+
+        <set name="denegadas" table="RemNot" >
+            <key column="nif"/>
+            <many-to-many class="modelo.notificaciones.NotificacionDenegada" column="idNotificacion" />
+        </set>
+
+        <set name="pendientes" table="RemNot" >
+            <key column="nif"/>
+            <many-to-many class="modelo.notificaciones.Notificaciones" column="idNotificacion" />
+        </set>
+
         <!--<set name="aprobadas" inverse="true">
             <key column="destinatario" not-null="true" length="9"/>
             <one-to-many class="modelo.notificaciones.NotificacionAprobada"/>
         </set>
+
+
         <set name="denegadas" inverse="true">
             <key column="destinatario" not-null="true" length="9"/>
             <one-to-many class="modelo.notificaciones.NotificacionDenegada"/>
@@ -42,11 +61,11 @@
 
     <subclass name="modelo.Jefe" discriminator-value="JEFE">
         <property name="departamento" column="departamento" type="string"/>
-        <!--
-        <set name="notificaciones" inverse="true">
-            <key column="destinatario" not-null="true" length="9"/>
-            <one-to-many class="modelo.notificaciones.Notificaciones"/>
-        </set> -->
+      
+        <set name="notificaciones" table="DestNot" >
+            <key column="nif"/>
+            <many-to-many class="modelo.notificaciones.Notificaciones" column="idNotificacion" />
+        </set>
     </subclass>
     <subclass name="modelo.Administrador" discriminator-value="ADMINISTRADOR">
     </subclass>
