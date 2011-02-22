@@ -5,12 +5,20 @@ import java.util.Date;
 public class DatoCuadricula  implements java.io.Serializable {
 
      private int idDatoCuadricula;
-    // private Cuadricula cuadricula;
+     private Cuadricula cuadricula;
      private Date dia;
      private int horas;
      private String dpto;
 
     public DatoCuadricula() {
+    }
+
+    public Cuadricula getCuadricula() {
+        return cuadricula;
+    }
+
+    public void setCuadricula(Cuadricula cuadricula) {
+        this.cuadricula = cuadricula;
     }
 
     public DatoCuadricula(int idDatoCuadricula, Cuadricula cuadricula, Date dia, int horas, String dpto) {
@@ -59,6 +67,8 @@ public class DatoCuadricula  implements java.io.Serializable {
     public void setDpto(String dpto) {
         this.dpto = dpto;
     }
+
+
 }
 
 
