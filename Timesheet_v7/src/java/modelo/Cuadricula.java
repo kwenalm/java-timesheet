@@ -9,27 +9,13 @@ public class Cuadricula  implements java.io.Serializable {
      private Integer idCuadricula;
      private Usuario usuario;
      private Date fechaInicio;
-     private String estado;  // Enum: Pendiente, Enviada, Aprobada, Denegada
-    // private Set notificacioneses = new HashSet(0);
-     private Set<DatoCuadricula> datosCuadricula;
+     TipoCuadricula estado;
+    // private Set datosCuadricula;
 
     public Cuadricula() {
         
     }
 
-/*
-    public Cuadricula(Usuario usuario, Date fechaInicio) {
-        this.usuario = usuario;
-        this.fechaInicio = fechaInicio;
-    }
-    public Cuadricula(Usuario usuario, Date fechaInicio, String estado, Set notificacioneses, Set datoCuadriculas) {
-       this.usuario = usuario;
-       this.fechaInicio = fechaInicio;
-       this.estado = estado;
-       this.notificacioneses = notificacioneses;
-       this.datoCuadriculas = datoCuadriculas;
-    }
-  */
     public Integer getIdCuadricula() {
         return this.idCuadricula;
     }
@@ -54,30 +40,22 @@ public class Cuadricula  implements java.io.Serializable {
         this.fechaInicio = fechaInicio;
     }
 
-    public String getEstado() {
+      public TipoCuadricula getEstado() {
         return this.estado;
     }
-    
-    public void setEstado(String estado) {
+
+    public void setEstado(TipoCuadricula estado) {
         this.estado = estado;
     }
-    /*
-    public Set getNotificacioneses() {
-        return this.notificacioneses;
-    }
-    
-    public void setNotificacioneses(Set notificacioneses) {
-        this.notificacioneses = notificacioneses;
-    }
-     */
 
-    public Set<DatoCuadricula> getDatosCuadricula() {
+/*
+    public Set getDatosCuadricula() {
         return this.datosCuadricula;
     }
     
-    public void setDatosCuadricula(Set<DatoCuadricula> datoCuadriculas) {
+    public void setDatosCuadricula(Set datoCuadriculas) {
         this.datosCuadricula = datoCuadriculas;
-    }
+    }*/
 }
 
 

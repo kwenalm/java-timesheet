@@ -5,7 +5,7 @@
   <class catalog="lacue1_grupo2" name="modelo.Usuario" table="Usuario">
     <id name="nif" type="string">
       <column length="9" name="nif"/>
-      <generator class="assigned"/>
+      <generator class="native"/>
     </id>
     <discriminator column="tipo" type="string"/>
 
@@ -22,7 +22,7 @@
 
     <subclass name="modelo.Empleado" discriminator-value="EMPLEADO">
         <property name="departamento" column="departamento" type="string"/>
-
+<!--
         <set name="aprobadas" table="RemNot" >
             <key column="nif"/>
             <many-to-many class="modelo.notificaciones.NotificacionAprobada" column="idNotificacion" />
@@ -37,9 +37,9 @@
             <key column="nif"/>
             <many-to-many class="modelo.notificaciones.Notificaciones" column="idNotificacion" />
         </set>
-        
-        <set name="cuadriculas">
-            <key column="nif"/>
+    -->
+        <set name="cuadriculas" >
+            <key column="nif" />
             <one-to-many class="modelo.Cuadricula"/>
         </set>
         
@@ -47,11 +47,12 @@
 
     <subclass name="modelo.Jefe" discriminator-value="JEFE">
         <property name="departamento" column="departamento" type="string"/>
-      
+      <!--
         <set name="notificaciones" table="DestNot" >
             <key column="nif"/>
             <many-to-many class="modelo.notificaciones.Notificaciones" column="idNotificacion" />
         </set>
+        -->
     </subclass>
 
     <subclass name="modelo.Administrador" discriminator-value="ADMINISTRADOR">
