@@ -26,27 +26,27 @@ public class Comprobaciones {
         autentificacion.setClave(clave);
         // Si existe se ha de recuperar el tipo del usuario para entrar
         //de una forma u otra al sistema.
-
+/*
         Empleado pedro = (Empleado)dao.Conexion.getEntidad("33445566N", modelo.Usuario.class);
-        Cuadricula cuadriculas = (Cuadricula)pedro.getCuadriculas().iterator().next();
-        DatoCuadricula datos = new DatoCuadricula();
-        datos.setDia(new Date());
-        datos.setDpto("cuentas");
-        datos.setHoras(10);
-        Set datoss = new TreeSet();
-        datoss.add(datos);
+        //Cuadricula cuadriculas = (Cuadricula)pedro.getCuadriculas().iterator().next();
+      //  DatoCuadricula datos = new DatoCuadricula();
+        //datos.setDia(new Date());
+        //datos.setDpto("cuentas");
+        //datos.setHoras(10);
+        //Set datoss = new TreeSet();
+        //datoss.add(datos);
        // cuadriculas.setDatosCuadricula(datoss);
         pedro.setDenegadas(null);
         pedro.setAprobadas(null);
         pedro.setPendientes(null);
 
         Cuadricula c = new Cuadricula();
-        c.setIdCuadricula(5);
+        c.setIdCuadricula(4);
         
         c.setFechaInicio(new Date());
         c.setUsuario(pedro);
         c.setEstado(TipoCuadricula.PENDIENTE);
-       
+        pedro.addCuadriculas(c);
        // System.out.println(e);
 //        Notificaciones n = new Notificaciones();
 //        n.setIdNotificaciones(1);
@@ -55,8 +55,8 @@ public class Comprobaciones {
 
   //      dao.Conexion.almacenaEntidad(cuadriculas);
 
-        dao.Conexion.almacenaEntidad(c);
-
+        dao.Conexion.almacenaEntidad(pedro);
+*/
         return autentificacion.existe();
     }
     

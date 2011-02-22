@@ -12,6 +12,10 @@
       <column name="idCuadricula" not-null="true"/>
     </many-to-one>
     -->
+    <many-to-one class="modelo.Cuadricula" cascade="all" name="cuadricula">
+      <column name="idCuadricula" not-null="true"/>
+    </many-to-one>
+
     <property name="dia" type="date">
       <column length="10" name="dia" not-null="true"/>
     </property>

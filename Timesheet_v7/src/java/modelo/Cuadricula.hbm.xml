@@ -10,7 +10,7 @@
       <generator class="assigned"/>
     </id>
 
-    <many-to-one class="modelo.Usuario" name="usuario">
+    <many-to-one class="modelo.Usuario" cascade="all" name="usuario">
       <column name="nif" not-null="true"/>
     </many-to-one>
 
@@ -25,6 +25,11 @@
             </param>
         </type>
     </property>
+
+    <set name="datosCuadricula" cascade="all">
+            <key column="idCuadricula" />
+            <one-to-many class="modelo.DatoCuadricula"/>
+        </set>
 
   </class>
 

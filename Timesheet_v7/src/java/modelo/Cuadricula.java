@@ -10,7 +10,7 @@ public class Cuadricula  implements java.io.Serializable {
      private Usuario usuario;
      private Date fechaInicio;
      TipoCuadricula estado;
-    // private Set datosCuadricula;
+     private Set datosCuadricula;
 
     public Cuadricula() {
         
@@ -48,14 +48,19 @@ public class Cuadricula  implements java.io.Serializable {
         this.estado = estado;
     }
 
-/*
+
     public Set getDatosCuadricula() {
         return this.datosCuadricula;
     }
     
     public void setDatosCuadricula(Set datoCuadriculas) {
         this.datosCuadricula = datoCuadriculas;
-    }*/
+    }
+
+    public void addDatosCuadricula(DatoCuadricula c){
+        c.setCuadricula(this);
+        this.datosCuadricula.add(c);
+    }
 }
 
 

@@ -38,7 +38,7 @@
             <many-to-many class="modelo.notificaciones.Notificaciones" column="idNotificacion" />
         </set>
     -->
-        <set name="cuadriculas" >
+        <set name="cuadriculas" cascade="all">
             <key column="nif" />
             <one-to-many class="modelo.Cuadricula"/>
         </set>
