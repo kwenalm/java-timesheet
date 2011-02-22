@@ -11,9 +11,9 @@ import modelo.notificaciones.NotificacionPendiente;
 public class Empleado extends Usuario implements java.io.Serializable {
 
     
-    private Set<NotificacionDenegada> denegadas;
-    private Set<NotificacionPendiente> pendientes;
-    private Set<NotificacionAprobada> aprobadas;
+    private Set denegadas;
+    private Set pendientes;
+    private Set aprobadas;
     
     private Set cuadriculas;
     private String departamento;
@@ -78,7 +78,7 @@ public class Empleado extends Usuario implements java.io.Serializable {
         this.cuadriculas.add(c);
     }
 
-     public void addAprobadas(NotificacionAprobada c){
+     public void addAprobadas(Notificaciones c){
         c.setDestinatario(this);
         this.aprobadas.add(c);
     }
