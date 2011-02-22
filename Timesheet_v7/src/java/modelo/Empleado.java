@@ -4,12 +4,17 @@ import modelo.notificaciones.Notificaciones;
 import java.util.Comparator;
 import java.util.Set;
 import java.util.TreeSet;
+import modelo.notificaciones.NotificacionAprobada;
+import modelo.notificaciones.NotificacionDenegada;
+import modelo.notificaciones.NotificacionPendiente;
 
 public class Empleado extends Usuario implements java.io.Serializable {
 
-    private Set pendientes;
-    private Set aprobadas;
-    private Set denegadas;
+    
+    private Set<NotificacionDenegada> denegadas;
+    private Set<NotificacionPendiente> pendientes;
+    private Set<NotificacionAprobada> aprobadas;
+    
     private Set cuadriculas;
     private String departamento;
 
@@ -71,6 +76,11 @@ public class Empleado extends Usuario implements java.io.Serializable {
      public void addCuadriculas(Cuadricula c){
         c.setUsuario(this);
         this.cuadriculas.add(c);
+    }
+
+     public void addAprobadas(NotificacionAprobada c){
+        c.setDestinatario(this);
+        this.aprobadas.add(c);
     }
 
 

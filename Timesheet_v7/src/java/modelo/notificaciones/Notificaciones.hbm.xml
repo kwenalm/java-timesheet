@@ -3,63 +3,50 @@
 
 <hibernate-mapping>
   <class catalog="lacue1_grupo2" name="modelo.notificaciones.Notificaciones" table="Notificaciones">
-    <id name="idNotificaciones" type="int">
+    <id name="idNotificaciones" type="integer">
       <column name="idNotificaciones"/>
-      <generator class="native"/>
+      <generator class="assigned"/>
     </id>
     <discriminator column="tipo" type="string"/>
 
-   <many-to-one class="modelo.Usuario" fetch="select" name="remitente">
-      <column length="9" name="remitente" not-null="true"/>
-    </many-to-one>
+   <many-to-one class="modelo.Usuario" cascade="all" name="destinatario">
+      <column name="destinatario" not-null="true"/>
+   </many-to-one>
 
-    <many-to-one class="modelo.Usuario" fetch="select" name="destinatario">
-      <column length="9" name="destinatario" not-null="true"/>
-    </many-to-one> 
-    
-    <many-to-one class="modelo.Cuadricula" fetch="select" name="cuadricula">
+   <many-to-one class="modelo.Cuadricula" cascade="all" name="cuadricula">
       <column name="idCuadricula" not-null="true"/>
-    </many-to-one>
-    
+   </many-to-one>
 
+   <many-to-one class="modelo.Usuario" cascade="all" name="remitente">
+      <column name="remitente" not-null="true"/>
+   </many-to-one>
+
+   
     <property name="fecha" type="date">
-      <column length="10" name="fecha" not-null="true"/>
+      <column name="fecha" not-null="true"/>
     </property>
 
-
-    <!-- Subclase NotificacionAprobada -->
     <subclass name="modelo.notificaciones.NotificacionAprobada" discriminator-value="APROBADA">
     </subclass>
-
-    <!-- Subclase NotificacionDenegada -->
+ 
     <subclass name="modelo.notificaciones.NotificacionDenegada" discriminator-value="DENEGADA">
+
         <join table="NotificacionDenegada">
             <key column="idNotificaciones"/>
             <property name="motivo" column="motivo" type="string"/>
         </join>
+
     </subclass>
 
-    <!-- Subclase NotificacionDenegada -->
+
     <subclass name="modelo.notificaciones.NotificacionPendiente" discriminator-value="PENDIENTE">
+
         <join table="NotificacionPendiente">
             <key column="idNotificaciones"/>
             <property name="plazo" column="plazo" type="date"/>
         </join>
+
     </subclass>
-    
-    <!--
-    <set inverse="true" name="notificacionDenegadas">
-      <key>
-        <column name="idNotificaciones" not-null="true" unique="true"/>
-      </key>
-      <one-to-many class="modelo.notificaciones.NotificacionDenegada"/>
-    </set>
-    <set inverse="true" name="notificacionPendientes">
-      <key>
-        <column name="idNotificaciones" not-null="true" unique="true"/>
-      </key>
-      <one-to-many class="modelo.notificaciones.NotificacionPendiente"/>
-    </set>
-    -->
+
   </class>
 </hibernate-mapping>

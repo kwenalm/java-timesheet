@@ -8,10 +8,10 @@
     <property name="hibernate.connection.username">lacue1_grupo2</property>
     <property name="hibernate.connection.password">grupojava</property>
     <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.show_sql">true</property>
 
-<!--
    <mapping resource ="modelo/notificaciones/Notificaciones.hbm.xml"/> 
-    -->
+
     <mapping resource="modelo/DatoCuadricula.hbm.xml"/>
 
     <mapping resource="modelo/Autentificacion.hbm.xml"/>

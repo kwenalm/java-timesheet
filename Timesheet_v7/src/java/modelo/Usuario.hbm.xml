@@ -22,37 +22,36 @@
 
     <subclass name="modelo.Empleado" discriminator-value="EMPLEADO">
         <property name="departamento" column="departamento" type="string"/>
-<!--
-        <set name="aprobadas" table="RemNot" >
-            <key column="nif"/>
-            <many-to-many class="modelo.notificaciones.NotificacionAprobada" column="idNotificacion" />
+
+          <set name="aprobadas" cascade="all">
+            <key column="destinatario" />
+            <one-to-many class="modelo.notificaciones.NotificacionAprobada"/>
+        </set>
+        <set name="pendientes" cascade="all">
+            <key column="destinatario" />
+            <one-to-many class="modelo.notificaciones.NotificacionPendiente"/>
+        </set>
+        <set name="denegadas" cascade="all">
+            <key column="destinatario" />
+            <one-to-many class="modelo.notificaciones.NotificacionDenegada"/>
         </set>
 
-        <set name="denegadas" table="RemNot" >
-            <key column="nif"/>
-            <many-to-many class="modelo.notificaciones.NotificacionDenegada" column="idNotificacion" />
-        </set>
-
-        <set name="pendientes" table="RemNot" >
-            <key column="nif"/>
-            <many-to-many class="modelo.notificaciones.Notificaciones" column="idNotificacion" />
-        </set>
-    -->
         <set name="cuadriculas" cascade="all">
             <key column="nif" />
             <one-to-many class="modelo.Cuadricula"/>
         </set>
-        
+
+
     </subclass>
 
     <subclass name="modelo.Jefe" discriminator-value="JEFE">
         <property name="departamento" column="departamento" type="string"/>
-      <!--
-        <set name="notificaciones" table="DestNot" >
-            <key column="nif"/>
-            <many-to-many class="modelo.notificaciones.Notificaciones" column="idNotificacion" />
+      
+        <set name="notificaciones" cascade="all" >
+            <key column="destinatario"/>
+            <one-to-many class="modelo.notificaciones.Notificaciones" />
         </set>
-        -->
+        
     </subclass>
 
     <subclass name="modelo.Administrador" discriminator-value="ADMINISTRADOR">
