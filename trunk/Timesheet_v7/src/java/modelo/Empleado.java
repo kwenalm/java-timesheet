@@ -26,8 +26,6 @@ public class Empleado extends Usuario implements java.io.Serializable {
     public void setAprobadas (Set aprobadas)
     {
         this.aprobadas=aprobadas;
-        //this.aprobadas = new TreeSet( new ComparadorNRecientes());
-       // this.aprobadas.addAll(aprobadas);
     }
 
     public void setDenegadas (Set denegadas)
@@ -38,19 +36,16 @@ public class Empleado extends Usuario implements java.io.Serializable {
     public Set getPendientes ()
     {
         return this.pendientes;
-        //return new TreeSet(this.pendientes);
     }
 
     public Set getAprobadas ()
     {
         return this.aprobadas;
-        //return new TreeSet(this.aprobadas);
     }
 
     public Set getDenegadas ()
     {
         return this.denegadas;
-        //return new TreeSet(this.denegadas);
     }
 
     public void setDepartamento (String dep)
@@ -63,7 +58,7 @@ public class Empleado extends Usuario implements java.io.Serializable {
         return this.departamento;
     }
 
-    public void setCuadriculas(Set c)
+     public void setCuadriculas(Set c)
     {
         cuadriculas = c;
     }
@@ -71,8 +66,13 @@ public class Empleado extends Usuario implements java.io.Serializable {
     public Set getCuadriculas()
     {
         return this.cuadriculas;
-       // return new TreeSet(this.cuadriculas);
     }
+
+     public void addCuadriculas(Cuadricula c){
+        c.setUsuario(this);
+        this.cuadriculas.add(c);
+    }
+
 
     private class ComparadorNRecientes implements Comparator<Notificaciones>
     {

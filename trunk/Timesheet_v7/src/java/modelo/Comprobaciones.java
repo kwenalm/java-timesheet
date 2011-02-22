@@ -9,6 +9,8 @@ import java.util.Date;
 import modelo.notificaciones.Notificaciones;
 import modelo.Cuadricula;
 import modelo.Usuario;
+import java.util.Set;
+import java.util.TreeSet;
 /**
  *
  * @author Java I
@@ -19,30 +21,39 @@ public class Comprobaciones {
     private String clave;
 
     public String comprobar(){
-        autentificacion=new Autentificacion();
+         autentificacion=new Autentificacion();
         autentificacion.setNif(usuario);
         autentificacion.setClave(clave);
         // Si existe se ha de recuperar el tipo del usuario para entrar
         //de una forma u otra al sistema.
 
         Empleado pedro = (Empleado)dao.Conexion.getEntidad("33445566N", modelo.Usuario.class);
-        pedro.setCuadriculas(null);
+        Cuadricula cuadriculas = (Cuadricula)pedro.getCuadriculas().iterator().next();
+        DatoCuadricula datos = new DatoCuadricula();
+        datos.setDia(new Date());
+        datos.setDpto("cuentas");
+        datos.setHoras(10);
+        Set datoss = new TreeSet();
+        datoss.add(datos);
+       // cuadriculas.setDatosCuadricula(datoss);
         pedro.setDenegadas(null);
         pedro.setAprobadas(null);
         pedro.setPendientes(null);
 
         Cuadricula c = new Cuadricula();
-        c.setIdCuadricula(3);
-        c.setEstado("ACEPTADA");
+        c.setIdCuadricula(5);
+        
         c.setFechaInicio(new Date());
         c.setUsuario(pedro);
-
-        //Empleado e = (Empleado) dao.Conexion.getEntidad(pedro.getNif(), modelo.Empleado.class);
+        c.setEstado(TipoCuadricula.PENDIENTE);
+       
        // System.out.println(e);
 //        Notificaciones n = new Notificaciones();
 //        n.setIdNotificaciones(1);
 //        n.set
         //String c = "caca";
+
+  //      dao.Conexion.almacenaEntidad(cuadriculas);
 
         dao.Conexion.almacenaEntidad(c);
 
