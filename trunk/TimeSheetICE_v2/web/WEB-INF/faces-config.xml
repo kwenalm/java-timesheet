@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+
+<faces-config version="2.0"
+    xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+    <managed-bean>
+        <managed-bean-name>pruebaICE</managed-bean-name>
+        <managed-bean-class>beans.pruebaICE</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+       <managed-bean>
+        <managed-bean-name>miBean</managed-bean-name>
+        <managed-bean-class>modelo.manejaInputs</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>volver</from-outcome>
+            <to-view-id>/opcionesAdmin.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>linkeador</managed-bean-name>
+        <managed-bean-class>modelo.LinksBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>comprobador</managed-bean-name>
+        <managed-bean-class>modelo.Comprobaciones</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/welcomeJSF.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>administrador</from-outcome>
+            <to-view-id>/opcionesAdmin.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>jefe</from-outcome>
+            <to-view-id>/opcionesJefe.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>empleado</from-outcome>
+            <to-view-id>/opcionesEmpleado.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>noexiste</from-outcome>
+            <to-view-id>/welcomeJSF.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>
