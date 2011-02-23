@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+    Document   : newICEfaces20
+    Created on : 23-feb-2011, 13:06:04
+    Author     : Java I
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:icecore="http://www.icefaces.org/icefaces/core"
+       xmlns:ace="http://www.icefaces.org/icefaces/components"
+       xmlns:ice="http://www.icesoft.com/icefaces/component"
+       >
+
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TimeSheet project</title>
+<link href="estilos/login.css" rel="stylesheet" type="text/css" />
+</h:head>
+
+<h:body>
+
+<div class="container">
+  <div class="header"><a href="#"><img src="images/login.jpg" alt="Insert Logo Here" name="Insert_logo" width="800"  height="90" id="Insert_logo" style="background: #8090AB; display:block; margin-left:-10px" /></a>
+    <!-- end .header --></div>
+  <div class="content"><div id="formulario">
+          <h:form id="formularioLogeo">
+
+
+ <fieldset class="login">
+
+			<legend>Identifíquese</legend>
+			<div id="usuario">
+                            Usuario:<h:inputText id="username" style="margin-left:37px" value="#{comprobador.usuario}" />
+			</div>
+			<div id="clave">
+                            Contraseña: <h:inputSecret id="password" value="#{comprobador.clave}"/>
+			</div>
+            </fieldset>
+                            <div id="boton">
+                                <h:commandButton value="Enviar" action="#{comprobador.comprobar}" style="margin-left:-10px"/>
+                                <h:commandButton value="Restaurar" type="reset" style="margin-left:10px"/>
+                            </div>
+          </h:form>
+
+ </div>
+
+
+    <!-- end .content --></div>
+  <div class="footer">
+    Todos los derechos reservados - 2011
+  </div>
+</div>
+</h:body>
+</html>

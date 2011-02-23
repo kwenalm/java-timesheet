@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+  <class catalog="lacue1_grupo2" name="modelo.Cuadricula" table="Cuadricula">
+
+    <id name="idCuadricula" type="java.lang.Integer">
+      <column name="idCuadricula"/>
+      <generator class="assigned"/>
+    </id>
+
+    <many-to-one class="modelo.Usuario" cascade="all" name="usuario">
+      <column name="nif" not-null="true"/>
+    </many-to-one>
+
+    <property name="fechaInicio" type="date">
+      <column name="fechaInicio" not-null="true"/>
+    </property>
+
+    <property name="estado" column="estado">
+  	<type name="dao.EnumUserType">
+            <param name="enumClassName">
+               modelo.TipoCuadricula
+            </param>
+        </type>
+    </property>
+
+    <set name="datosCuadricula" cascade="all">
+            <key column="idCuadricula" />
+            <one-to-many class="modelo.DatoCuadricula"/>
+        </set>
+
+  </class>
+
+</hibernate-mapping>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class catalog="lacue1_grupo2" name="modelo.notificaciones.Notificaciones" table="Notificaciones">
+    <id name="idNotificaciones" type="integer">
+      <column name="idNotificaciones"/>
+      <generator class="assigned"/>
+    </id>
+    <discriminator column="tipo" type="string"/>
+
+   <many-to-one class="modelo.Usuario" cascade="all" name="destinatario">
+      <column name="destinatario" not-null="true"/>
+   </many-to-one>
+
+   <many-to-one class="modelo.Cuadricula" cascade="all" name="cuadricula">
+      <column name="idCuadricula" not-null="true"/>
+   </many-to-one>
+
+   <many-to-one class="modelo.Usuario" cascade="all" name="remitente">
+      <column name="remitente" not-null="true"/>
+   </many-to-one>
+
+   
+    <property name="fecha" type="date">
+      <column name="fecha" not-null="true"/>
+    </property>
+
+    <subclass name="modelo.notificaciones.NotificacionAprobada" discriminator-value="APROBADA">
+        <join table="NotificacionAprobada">
+            <key column="idNotificaciones"/>
+            <property name="motivo" column="motivo" type="string"/>
+        </join>
+    </subclass>
+ 
+    <subclass name="modelo.notificaciones.NotificacionDenegada" discriminator-value="DENEGADA">
+
+        <join table="NotificacionDenegada">
+            <key column="idNotificaciones"/>
+            <property name="motivo" column="motivo" type="string"/>
+        </join>
+
+    </subclass>
+
+
+    <subclass name="modelo.notificaciones.NotificacionPendiente" discriminator-value="PENDIENTE">
+
+        <join table="NotificacionPendiente">
+            <key column="idNotificaciones"/>
+            <property name="plazo" column="plazo" type="date"/>
+        </join>
+
+    </subclass>
+
+  </class>
+</hibernate-mapping>
